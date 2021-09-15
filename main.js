@@ -37,7 +37,7 @@ function draw() {
         }
     }
 
-    if(leftwristscore>0.2) {
+    if(rightwristscore>0.2) {
         circle(rightwristX,rightwristY,20);
         astro.stop();
         if(song1stat == false) {
