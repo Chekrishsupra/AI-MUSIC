@@ -42,12 +42,14 @@ function modelLoaded() {
 }
 
 function gotposes(results) {
-    console.log(results);
-    leftwristX = results[0].pose.leftWrist.x;
-    leftwristY = results[0].pose.leftWrist.y;
-    rightwristX = results[0].pose.rightWrist.x;
-    rightwristY = results[0].pose.rightWrist.y;
-    console.log("Left-wrist X=" + leftwristX + ", left-wrist y=" + leftwristY);
-    console.log("Right-wrist X=" + rightwristX + ", Rigth-wrist Y=" + rightwristY);
-    leftwristscore  = results[0].pose.keypoints[9].score;
+    if(results.length>0) {
+        console.log(results);
+        leftwristX = results[0].pose.leftWrist.x;
+        leftwristY = results[0].pose.leftWrist.y;
+        rightwristX = results[0].pose.rightWrist.x;
+        rightwristY = results[0].pose.rightWrist.y;
+        console.log("Left-wrist X=" + leftwristX + ", left-wrist y=" + leftwristY);
+        console.log("Right-wrist X=" + rightwristX + ", Rigth-wrist Y=" + rightwristY);
+        leftwristscore  = results[0].pose.keypoints[9].score;  
+    }
 }
