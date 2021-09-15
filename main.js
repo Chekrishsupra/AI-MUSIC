@@ -5,6 +5,7 @@ leftwristY = 0;
 rightwristX = 0;
 rightwristY = 0;
 leftwristscore  = 0;
+rightwristscore = 0;
 song1stat = "";
 song2stat = "";
 function preload() {
@@ -35,6 +36,15 @@ function draw() {
             document.getElementById("song_display").innerHTML = "Song: Astronauts in the ocean";
         }
     }
+
+    if(leftwristscore>0.2) {
+        circle(rightwristX,rightwristY,20);
+        astro.stop();
+        if(song1stat == false) {
+            beliver.play();
+            document.getElementById("song_display").innerHTML = "Song: Beliver";
+        }
+    }
 }
 
 function modelLoaded() {
@@ -50,6 +60,7 @@ function gotposes(results) {
         rightwristY = results[0].pose.rightWrist.y;
         console.log("Left-wrist X=" + leftwristX + ", left-wrist y=" + leftwristY);
         console.log("Right-wrist X=" + rightwristX + ", Rigth-wrist Y=" + rightwristY);
-        leftwristscore  = results[0].pose.keypoints[9].score;  
+        leftwristscore  = results[0].pose.keypoints[9].score; 
+        rightwristscore = results[0].pose.keypoints[10].score; 
     }
 }
